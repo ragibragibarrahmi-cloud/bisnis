@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>gipar  Dev | Jasa Web & Suntik Sosmed</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navbar */
+    .navbar {
+      background-color: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .logo span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #475569;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1e293b;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    .btn-outline-small {
+      border: 1.5px solid #2563eb;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: transparent;
+      font-weight: 600;
+      color: #2563eb;
+      transition: 0.2s;
+    }
+    .btn-outline-small:hover {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Hero + Promo Banner */
+    .hero {
+      padding: 60px 0 40px;
+    }
+    .promo-badge {
+      background: #fef9c3;
+      color: #854d0e;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+      backdrop-filter: blur(2px);
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #2563eb, #a855f7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #334155;
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 48px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 14px 32px;
+      border-radius: 48px;
+      font-weight: 700;
+      color: #1e293b;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+    .hero-image {
+      flex: 1;
+      background: linear-gradient(145deg, #e2e8f0, #ffffff);
+      border-radius: 48px;
+      padding: 20px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      width: 320px;
+      filter: drop-shadow(0 10px 8px rgba(0,0,0,0.05));
+    }
+
+    /* Flash sale / promo khusus */
+    .promo-flash {
+      background: #0f172a;
+      border-radius: 40px;
+      margin: 40px 0 40px;
+      padding: 32px 28px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .promo-flash h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+    .promo-flash .price {
+      font-size: 2rem;
+      font-weight: 800;
+      background: #facc15;
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 60px;
+      color: #0f172a;
+    }
+    .promo-flash .old-price {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      margin-right: 16px;
+      opacity: 0.7;
+    }
+    .countdown {
+      background: #1e293b;
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-family: monospace;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    /* layanan card */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 60px 0 30px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 50px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      text-align: center;
+      border: 1px solid #eef2ff;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      font-size: 3rem;
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      color: #475569;
+      margin-bottom: 20px;
+    }
+    .price-tag {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+    .price-tag small {
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .badge-promo {
+      background: #f97316;
+      color: white;
+      border-radius: 60px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* paket combo web + suntik */
+    .combo-section {
+      background: linear-gradient(120deg, #eef2ff, #ffffff);
+      border-radius: 48px;
+      padding: 48px 32px;
+      margin: 40px 0;
+    }
+    .combo-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .combo-text {
+      flex: 1;
+    }
+    .combo-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .combo-price {
+      font-size: 2.3rem;
+      font-weight: 800;
+      background: #0f172a;
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 40px;
+      color: white;
+      margin: 20px 0;
+    }
+    .combo-btn {
+      background: #7c3aed;
+      padding: 14px 38px;
+      border-radius: 40px;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* porto mini */
+    .porto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .porto-item {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .porto-img {
+      height: 160px;
+      background: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #475569;
+    }
+    .porto-item p {
+      padding: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* testimoni */
+    .testi-grid {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .testi-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      max-width: 320px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .testi-card i {
+      color: #facc15;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .testi-card p {
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    /* CTA */
+    .cta {
+      background: #0f172a;
+      border-radius: 48px;
+      text-align: center;
+      padding: 64px 32px;
+      margin: 60px 0;
+    }
+    .cta h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .cta .btn-primary {
+      background: #facc15;
+      color: #0f172a;
+      box-shadow: none;
+      font-size: 1.2rem;
+    }
+
+    /* footer */
+    footer {
+      background: #f1f5f9;
+      padding: 40px 0 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .social-icons i {
+      font-size: 1.6rem;
+      margin-right: 18px;
+      color: #334155;
+    }
+
+    /* floating WA */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 99;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .wa-float:hover {
+      transform: scale(1.05);
+      background: #128C7E;
+    }
+
+    @media (max-width: 760px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+      .promo-flash {
+        flex-direction: column;
+        text-align: center;
+      }
+      .countdown {
+        font-size: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">
+      <h1>AdiNusa<span>Creative Studio</span></h1>
+    </div>
+    <div class="nav-links">
+      <a href="#">Layanan</a>
+      <a href="#">Portofolio</a>
+      <a href="#" class="btn-outline-small">Konsultasi Gratis</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <!-- Hero + promo utama -->
+    <div class="hero">
+      <div class="promo-badge">
+        <i class="fas fa-fire"></i> PROMO AWAL BULAN! HEMAT 40% + BONUS
+      </div>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Bikin Web Profesional + <span class="gradient-text">Suntik Sosmed</span> Sekarang!</h1>
+          <p>Jasa pembuatan website modern, cepat, & boost engagement social media instan. Dapatkan paket spesial untuk UMKM dan personal branding.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn-primary"><i class="fab fa-whatsapp"></i> Chat Promo →</a>
+            <a href="#" class="btn-secondary">Lihat Paket</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-chart-line" style="font-size: 140px; color:#2563eb80;"></i>
+          <p style="margin-top: 8px;">🚀 Website + Growth sosmed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLASH SALE promo suntik sosial media khusus -->
+    <div class="promo-flash">
+      <div>
+        <h3><i class="fas fa-syringe"></i> Suntik Sosmed EXTREME</h3>
+        <p>Followers, likes, views instan | aman & real looking</p>
+      </div>
+      <div>
+        <span class="old-price">Rp 1.200.000</span>
+        <span class="price">Rp 599k</span>
+      </div>
+      <div class="countdown" id="countdownTimer">23:59:59</div>
+    </div>
+
+    <!-- Layanan Web dan Suntik Sosmed -->
+    <h2 class="section-title">✨ Layanan Unggulan ✨</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <div class="badge-promo">HOT DEAL!</div>
+        <h3>Web Company Profile</h3>
+        <p>Responsif, SEO friendly, desain modern + 3 bulan gratis hosting</p>
+        <div class="price-tag">Rp 1.2jt <small>/mulai</small></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-store"></i></div>
+        <div class="badge-promo">E-Commerce Starter</div>
+        <h3>Toko Online</h3>
+        <p>Lengkap dengan payment gateway, manajemen produk, dan dashboard</p>
+        <div class="price-tag">Rp 2.9jt <small>/mulai</small></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
+        <div class="badge-promo">Trending 🔥</div>
+        <h3>Suntik IG / TikTok</h3>
+        <p>Followers + likes + view reel | real aktif, garansi 30 hari</p>
+        <div class="price-tag">Rp 350k <small>/paket 5k followers</small></div>
+      </div>
+    </div>
+
+    <!-- PAKET HEMAT WEB + SUNTIK SOSMED (combo) -->
+    <div class="combo-section">
+      <div class="combo-inner">
+        <div class="combo-text">
+          <h2><i class="fas fa-gem"></i> Paket SUPER HEMAT <br> Web + Suntik Sosmed</h2>
+          <p>Dapatkan website profesional PLUS paket suntik sosmed (Instagram 2000 followers + 5000 like tiktok). Cocok untuk branding maksimal!</p>
+          <div class="combo-price">Rp 1.799.000 <span style="font-size:1rem;">(Total hemat 47%)</span></div>
+          <a href="#" class="combo-btn"><i class="fab fa-whatsapp"></i> Ambil Paket Combo →</a>
+        </div>
+        <div style="flex:0.5; text-align:center;">
+          <i class="fas fa-handshake" style="font-size: 80px; color:#7c3aed;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- portofolio singkat -->
+    <h2 class="section-title">📸 Proyek Terbaru</h2>
+    <div class="porto-grid">
+      <div class="porto-item">
+        <div class="porto-img"><i class="fas fa-laptop-code fa-3x"></i></div>
+        <p>✨ Website F&B Chain</p>
+      </div>
+      <div class="porto-item">
+        <div class="porto-img"><i class="fab fa-instagram fa-3x"></i></div>
+        <p>📈 Suntik IG 10k followers</p>
+      </div>
+      <div class="porto-item">
+        <div class="porto-img"><i class="fas fa-chalkboard-user fa-3x"></i></div>
+        <p>🏫 Sekolah Online interaktif</p>
+      </div>
+      <div class="porto-item">
+        <div class="porto-img"><i class="fab fa-tiktok fa-3x"></i></div>
+        <p>🎵 Viral TikTok 1M views</p>
+      </div>
+    </div>
+
+    <!-- testimoni -->
+    <h2 class="section-title">💬 Testimoni Klien</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <p>"Web cepat banget, promonya mantap! Suntik IG bikin akun saya makin dipercaya klien. Terima kasih AdiNusa!"</p>
+        <strong>- Dewi, Pemilik Butik</strong>
+      </div>
+      <div class="testi-card">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <p>"Paket combo web + suntik sosmed worth it! Followers naik signifikan, web company profile keren!"</p>
+        <strong>- Rizky, CEO Startup</strong>
+      </div>
+      <div class="testi-card">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <p>"Layanan suntik TikTok boosting view, hasilnya sangat terasa engagement. Rekomended!"</p>
+        <strong>- Maya, Konten Kreator</strong>
+      </div>
+    </div>
+
+    <!-- CTA BESAR -->
+    <div class="cta">
+      <h2>🚀 Mulai Promosi Bisnismu Sekarang!</h2>
+      <p style="color:#cbd5e1; margin-bottom:24px;">Diskon terbatas + Konsultasi GRATIS dengan expert kami</p>
+      <a href="#" class="btn-primary" style="background:#facc15; color:#0f172a;"><i class="fab fa-whatsapp"></i>  Hubungi & Dapatkan Promo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-flex">
+    <div>
+      <h3 style="font-weight:800;">AdiNusa Studio</h3>
+      <p>Jasa Web & Suntik Sosmed Terpercaya<br>Jakarta & seluruh Indonesia</p>
+    </div>
+    <div class="social-icons">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-tiktok"></i>
+      <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-facebook"></i>
+    </div>
+    <div>
+      <p>📞 +62 812 3456 7890<br>📧 halo@adinusa.com</p>
+      <p>© 2025 Promo Web & Suntik Sosmed</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20dengan%20promo%20web%20%2B%20suntik%20sosmed" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // Countdown timer untuk promo "Suntik Sosmed Extreme" (misal 24 jam kedepan)
+  function startCountdown() {
+    // set target waktu: sekarang + 24 jam
+    const targetTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 jam
+    const timerElement = document.getElementById('countdownTimer');
+    if (!timerElement) return;
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = targetTime - now;
+      if (distance <= 0) {
+        timerElement.innerHTML = "00:00:00";
+        clearInterval(interval);
+        return;
+      }
+      const hours = Math.floor((distance % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+      const minutes = Math.floor((distance % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+      timerElement.innerHTML = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    }
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+  }
+
+  // efek smooth untuk semua anchor (optional)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if(href !== "#" && href !== "" && href !== "#!" && href !== "#0") {
+        const targetElem = document.querySelector(href);
+        if(targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  startCountdown();
+
+  // Animasi sederhana pada kartu combo, memberikan efek kedip promo pada badge
+  const badges = document.querySelectorAll('.badge-promo');
+  badges.forEach(badge => {
+    badge.style.transition = '0.3s';
+    setInterval(() => {
+      badge.style.opacity = '0.9';
+      setTimeout(() => badge.style.opacity = '1', 400);
+    }, 1500);
+  });
+</script>
+</body>
+</html>
